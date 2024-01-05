@@ -21,14 +21,15 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const alien = new Alien({
+  /*const alien = new Alien({
     name: req.body.name,
     tech: req.body.tech,
     sub: req.body.sub,
-  });
+  });*/
 
   try {
-    const a1 = await alien.save();
+    //const a1 = await alien.save();
+    const a1 = await Alien.create(req.body);
     res.json(a1);
   } catch (error) {
     res.send("Error");
